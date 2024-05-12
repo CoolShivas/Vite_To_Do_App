@@ -1,9 +1,12 @@
 
 
 const ToDoLists = (props) => {
+
+    const { arrABC } = props;
+
     return (
         <li>
-            {props.arrABC}
+            {arrABC}
         </li>
     )
 }
