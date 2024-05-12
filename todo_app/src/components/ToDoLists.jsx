@@ -1,9 +1,9 @@
 import { IoCloseCircle } from "react-icons/io5";
 
-const ToDoLists = ({ arrABC }) => {
+const ToDoLists = ({ arrABC, handlerOnDelBtnABC }) => {
 
     const handlerOnCrossIcon = () => {
-        console.log('cross btn clicked');
+        handlerOnDelBtnABC();
     };
 
     return (

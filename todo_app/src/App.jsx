@@ -33,6 +33,11 @@ const App = () => {
     // Here, by using the add button clear the inputField after rendering the data ;
   };
 
+  const handlerOnDelBtn = () => {
+    console.log('cross btn clicked');
+  };
+
+
   return (
     <>
       <div className="main_div">
@@ -47,7 +52,7 @@ const App = () => {
             {/* <li> {textInput} </li> */}
             {/* Passing the current state value with initial state i.e, "buy apple". */}
             {itemsArray.map((arr) => {
-              return <ToDoLists arrABC={arr}></ToDoLists>
+              return <ToDoLists arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
               // Here, itemsArray will use the map method to set the data in the second useState hook in the form of an Array with the help of setItemsArray having the previous data and the way of previous data to be mention as;
             })}
           </ol>
