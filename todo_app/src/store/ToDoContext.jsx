@@ -31,6 +31,8 @@ export const ToDoCtxProvider = (props) => {
 
     const [toggler, setToggler] = useState(true);// toggler is true ;
 
+    const [isEditItem, setIsEditItem] = useState(null);
+
 
     const handlerOnAddBtn = () => {
         if (!textInput) {
@@ -73,6 +75,8 @@ export const ToDoCtxProvider = (props) => {
         // Here, we are getting id and name after using only find;
         setToggler(false);
         setTextInput(editedArrItem.name);
+        // Taking the correct editing name for edit purpose on clicking on edit btn near to delete btn;
+        setIsEditItem(idABC); // Confirming whether the correct id name is selected for edit purpose ;
     };
 
 
