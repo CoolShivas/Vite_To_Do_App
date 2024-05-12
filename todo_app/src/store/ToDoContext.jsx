@@ -54,9 +54,11 @@ export const ToDoCtxProvider = (props) => {
 
     const handlerOnEditBtn = (idABC) => {
         console.log('editing is going on');
-        const editedArrItem = itemsArray.findIndex((currElement) => {
+        const editedArrItem = itemsArray.find((currElement) => {
             return currElement.id === idABC;
         })
+        // Previously, findIndex is giving the index number. Whereas we want the full object i.e, id as well as name also.
+        // Therefore, instead of findIndex we are going to use the find only that gives the full object;
         console.log(editedArrItem);// Here, we are going to get the correct id on edit button;
     };
 
