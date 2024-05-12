@@ -25,9 +25,16 @@ const App = () => {
   };
 
   const handlerOnAddBtn = () => {
-    setItemsArray((prevItems) => {
-      return [...prevItems, textInput];
-    });
+    // Use of conditional rendering because previously the data is added on the list by clicking on the add button. But it is also adding empty string if you do not enter anything and hit add button it will add the empty string.
+    // So, to get rid of this we are using conditional rendering with alert;
+    if (!textInput) {
+      alert('Enter something to add')
+    }
+    else {
+      setItemsArray((prevItems) => {
+        return [...prevItems, textInput];
+      });
+    }
     // Here, we are setting the itemsArray with the help of useState function;
     // Now, setItemsArray taking the parameter as prevItems (or any name you can give I have mention the prevItems) i.e, the textInput that have the initial value. Therefore, setItemsArray will return the prevItems with the help of spread operator and textInput(as object or way of how to mention the data such as previously the instead of buy apple if ther were any car details it will be mention as an object with car colour, seats, wheels and many more) i.e, for setting the items in the same Array.
     setTextInput("");
