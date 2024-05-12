@@ -6,6 +6,7 @@ const ToDoContext = createContext({
     addition: () => { },
     subtraction: () => { },
     removeAll: () => { },
+    editing: () => { },
 });
 
 
@@ -51,6 +52,15 @@ export const ToDoCtxProvider = (props) => {
         setItemsArray([]);
     };
 
+    const handlerOnEditBtn = (idABC) => {
+        console.log('editing is going on');
+        const editedArrItem = itemsArray.findIndex((currElement) => {
+            return currElement.id === idABC;
+        })
+        console.log(editedArrItem);// Here, we are going to get the correct id on edit button;
+    };
+
+
     useEffect(() => {
         localStorage.setItem("Task", JSON.stringify(itemsArray));
         // For storing the data into the localStorage by setItem by passing the name i.e, "Task", and to store the array in the form of string. We have to use the JSON.stringify() to convert it into string. What we have to convert i.e, the array where we storing the data with the help of useState i.e, itemsArray. 
@@ -69,6 +79,7 @@ export const ToDoCtxProvider = (props) => {
         addition: handlerOnAddBtn,
         subtraction: handlerOnDelBtn,
         removeAll: handlerOnRemoveAll,
+        editing: handlerOnEditBtn,
     };
 
 
