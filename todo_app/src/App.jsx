@@ -10,6 +10,9 @@ const App = () => {
   // Therefore, inside the useState() hook 'buy apple' is an initial state or passing the initial value to the useState.
   // Whereas textInput is the current state variable that holds the initial state or value.
 
+  const [itemsArray, setItemsArray] = useState([]);
+  // Here, we have define the new useState hook to store the array of items whenever the user entered on the input field ;
+
   const handlerOnInputText = (event) => {
     setTextInput(event.target.value);
     // Here, we are calling the function to set the data to the initial value or to fix inside the initial array or object whatever you have mention inside the useState hook;
@@ -19,6 +22,10 @@ const App = () => {
     // console.log(event.target.value);
   };
 
+  const handlerOnAddBtn = () => {
+    setItemsArray();
+    // Here, we are setting the itemsArray with the help of useState function;
+  };
 
   return (
     <>
@@ -28,7 +35,7 @@ const App = () => {
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={handlerOnInputText} />
-          <button> + </button>
+          <button onClick={handlerOnAddBtn}> + </button>
           <ol>
             <li> {textInput} </li>
             {/* Passing the current state value with initial state i.e, "buy apple". */}
