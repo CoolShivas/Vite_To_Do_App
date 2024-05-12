@@ -95,7 +95,7 @@ ol li{
 }
 
 
-.todo_style .fa-times{
+.todo_style .cross_icon{
   width: 20px;
   height: 20px;
   display: flex;
@@ -116,8 +116,9 @@ ol li{
 }
 
 
-.todo_style .fa-times:hover{
-  background-color: crimson;
+.todo_style .cross_icon:hover{
+  background-color: red;
+  cursor: pointer;
 }
 
 .todo_style .fa-times:hover .list_style{
