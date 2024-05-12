@@ -34,14 +34,15 @@ export const ToDoCtxProvider = (props) => {
             alert("Please enter something.");
         }
         else {
-            setItemsArray([...itemsArray, textInput]);
+            const allInputData = { id: new Date().getTime().toString(), name: textInput };
+            setItemsArray([...itemsArray, allInputData]);
         }
         setTextInput('');
     };
 
     const handlerOnDelBtn = (idABC) => {
-        const updatedArray = itemsArray.filter((currElem, index) => {
-            return index !== idABC;
+        const updatedArray = itemsArray.filter((currElem) => {
+            return currElem.id !== idABC;
         })
         setItemsArray(updatedArray);
     };

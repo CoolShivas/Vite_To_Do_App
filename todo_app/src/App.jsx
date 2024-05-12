@@ -260,9 +260,8 @@
 
 
 
-
-import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
 import ToDoLists from "./components/ToDoLists";
+import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
 import { useState, useContext } from "react";
 import ToDoContext from "./store/ToDoContext";
 
@@ -284,8 +283,8 @@ const App = () => {
             className="first_btn"
           > + </button>
           <ol>
-            {itemsArray.map((arr, index) => {
-              return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={subtraction}></ToDoLists>
+            {itemsArray.map((arr) => {
+              return <ToDoLists key={arr.id} idABC={arr.id} arrABC={arr.name}></ToDoLists>
             })}
           </ol>
           <button onClick={removeAll} className="second_btn"> Remove All </button>
