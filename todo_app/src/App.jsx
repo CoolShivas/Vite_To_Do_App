@@ -214,6 +214,10 @@ const App = () => {
     setItemsArray(updatedArray);
   };
 
+  const handlerOnRemoveAll = () => {
+    setItemsArray([]);
+  };
+
 
   return (
     <>
@@ -224,12 +228,15 @@ const App = () => {
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
-          <button onClick={handlerOnAddBtn}> + </button>
+          <button onClick={handlerOnAddBtn}
+            className="first_btn"
+          > + </button>
           <ol>
             {itemsArray.map((arr, index) => {
               return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
             })}
           </ol>
+          <button onClick={handlerOnRemoveAll} className="second_btn"> Remove All </button>
         </div>
       </div>
 
