@@ -72,6 +72,7 @@ export const ToDoCtxProvider = (props) => {
         console.log(editedArrItem);// Here, we are going to get the correct id on edit button;
         // Here, we are getting id and name after using only find;
         setToggler(false);
+        setTextInput(editedArrItem.name);
     };
 
 
