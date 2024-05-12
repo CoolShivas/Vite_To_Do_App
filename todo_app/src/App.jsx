@@ -23,8 +23,11 @@ const App = () => {
   };
 
   const handlerOnAddBtn = () => {
-    setItemsArray();
+    setItemsArray((prevItems) => {
+      return [...prevItems, textInput];
+    });
     // Here, we are setting the itemsArray with the help of useState function;
+    // Now, setItemsArray taking the parameter as prevItems (or any name you can give I have mention the prevItems) i.e, the textInput that have the initial value. Therefore, setItemsArray will return the prevItems with the help of spread operator and textInput(as object or way of how to mention the data such as previously the instead of buy apple if ther were any car details it will be mention as an object with car colour, seats, wheels and many more) i.e, for setting the items in the same Array.
   };
 
   return (
@@ -37,8 +40,14 @@ const App = () => {
           <input type="text" placeholder="add an item here" onChange={handlerOnInputText} />
           <button onClick={handlerOnAddBtn}> + </button>
           <ol>
-            <li> {textInput} </li>
+            {/* <li> {textInput} </li> */}
             {/* Passing the current state value with initial state i.e, "buy apple". */}
+            {itemsArray.map((arr) => {
+              return <li>
+                {arr}
+              </li>
+              // Here, itemsArray will use the map method to set the data in the second useState hook in the form of an Array with the help of setItemsArray having the previous data and the way of previous data to be mention as;
+            })}
           </ol>
         </div>
       </div>
