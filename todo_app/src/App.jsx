@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const App = () => {
 
-  const [textInput, setTextInput] = useState('buy apple');
+  const [textInput, setTextInput] = useState('');
 
   // useState is a Hook (function) that allows you to have state variables in functional components. You have to pass the initial state to this function, and it returns a variables with the current state value (not necessarily the initial state) and another function to update this value ;
 
@@ -28,6 +28,7 @@ const App = () => {
     });
     // Here, we are setting the itemsArray with the help of useState function;
     // Now, setItemsArray taking the parameter as prevItems (or any name you can give I have mention the prevItems) i.e, the textInput that have the initial value. Therefore, setItemsArray will return the prevItems with the help of spread operator and textInput(as object or way of how to mention the data such as previously the instead of buy apple if ther were any car details it will be mention as an object with car colour, seats, wheels and many more) i.e, for setting the items in the same Array.
+    setTextInput("");
   };
 
   return (
@@ -37,7 +38,7 @@ const App = () => {
           <br />
           <h1> To Do App </h1>
           <br />
-          <input type="text" placeholder="add an item here" onChange={handlerOnInputText} />
+          <input type="text" placeholder="add an item here" onChange={handlerOnInputText} value={textInput} />
           <button onClick={handlerOnAddBtn}> + </button>
           <ol>
             {/* <li> {textInput} </li> */}
