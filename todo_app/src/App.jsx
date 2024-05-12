@@ -88,12 +88,99 @@
 
 
 
+// /////////************************************************************************************************* */
+
+
+
+
+// // Making the code shorter :-
+
+
+
+
+// import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
+// import ToDoLists from "./components/ToDoLists";
+// import { useState } from "react";
+
+
+// const App = () => {
+
+//   const [textInput, setTextInput] = useState('');
+
+//   const [itemsArray, setItemsArray] = useState([]);
+
+
+//   // const handlerOnInputText = (event) => {
+//   //   setTextInput(event.target.value);
+//   // };
+
+//   // const handlerOnAddBtn = () => {
+//   //   if (!textInput) {
+//   //     alert('Enter something to add')
+//   //   }
+//   //   else {
+//   //     setItemsArray((prevItems) => {
+//   //       return [...prevItems, textInput];
+//   //     });
+//   //   }
+//   //   setTextInput("");
+//   // };
+
+//   const handlerOnAddBtn = () => {
+//     if (!textInput) {
+//       alert("Please enter something.");
+//     }
+//     else {
+//       setItemsArray([...itemsArray, textInput]);
+//     }
+//     setTextInput('');
+//   };
+
+//   const handlerOnDelBtn = (idABC) => {
+//     setItemsArray((prevItems) => {
+//       return prevItems.filter((currElem, index) => {
+//         return index !== idABC;
+//       })
+//     })
+//   };
+
+
+//   return (
+//     <>
+//       <div className="main_div">
+//         <div className="center_div">
+//           <br />
+//           <img src={todo} alt="image not found" style={{ width: "150px", height: "70px" }} />
+//           <h1> To Do App </h1>
+//           <br />
+//           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
+//           <button onClick={handlerOnAddBtn}> + </button>
+//           <ol>
+//             {itemsArray.map((arr, index) => {
+//               return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
+//             })}
+//           </ol>
+//         </div>
+//       </div>
+
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+
+
+
+
+
 /////////************************************************************************************************* */
 
 
 
 
-// Making the code shorter :-
+// Making the delete code shorter :-
 
 
 
@@ -110,22 +197,6 @@ const App = () => {
   const [itemsArray, setItemsArray] = useState([]);
 
 
-  // const handlerOnInputText = (event) => {
-  //   setTextInput(event.target.value);
-  // };
-
-  // const handlerOnAddBtn = () => {
-  //   if (!textInput) {
-  //     alert('Enter something to add')
-  //   }
-  //   else {
-  //     setItemsArray((prevItems) => {
-  //       return [...prevItems, textInput];
-  //     });
-  //   }
-  //   setTextInput("");
-  // };
-
   const handlerOnAddBtn = () => {
     if (!textInput) {
       alert("Please enter something.");
@@ -137,11 +208,10 @@ const App = () => {
   };
 
   const handlerOnDelBtn = (idABC) => {
-    setItemsArray((prevItems) => {
-      return prevItems.filter((currElem, index) => {
-        return index !== idABC;
-      })
+    const updatedArray = itemsArray.filter((currElem, index) => {
+      return index !== idABC;
     })
+    setItemsArray(updatedArray);
   };
 
 
