@@ -175,49 +175,101 @@
 
 
 
+// /////////************************************************************************************************* */
+
+
+
+
+// // Making the delete code shorter :-
+
+
+
+
+// import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
+// import ToDoLists from "./components/ToDoLists";
+// import { useState } from "react";
+
+
+// const App = () => {
+
+//   const [textInput, setTextInput] = useState('');
+
+//   const [itemsArray, setItemsArray] = useState([]);
+
+
+//   const handlerOnAddBtn = () => {
+//     if (!textInput) {
+//       alert("Please enter something.");
+//     }
+//     else {
+//       setItemsArray([...itemsArray, textInput]);
+//     }
+//     setTextInput('');
+//   };
+
+//   const handlerOnDelBtn = (idABC) => {
+//     const updatedArray = itemsArray.filter((currElem, index) => {
+//       return index !== idABC;
+//     })
+//     setItemsArray(updatedArray);
+//   };
+
+//   const handlerOnRemoveAll = () => {
+//     setItemsArray([]);
+//   };
+
+
+//   return (
+//     <>
+//       <div className="main_div">
+//         <div className="center_div">
+//           <br />
+//           <img src={todo} alt="image not found" style={{ width: "150px", height: "70px" }} />
+//           <h1> To Do App </h1>
+//           <br />
+//           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
+//           <button onClick={handlerOnAddBtn}
+//             className="first_btn"
+//           > + </button>
+//           <ol>
+//             {itemsArray.map((arr, index) => {
+//               return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
+//             })}
+//           </ol>
+//           <button onClick={handlerOnRemoveAll} className="second_btn"> Remove All </button>
+//         </div>
+//       </div>
+
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+
+
+
+
 /////////************************************************************************************************* */
 
 
 
 
-// Making the delete code shorter :-
+// Now usign Context Api for props :-
 
 
 
 
 import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
 import ToDoLists from "./components/ToDoLists";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ToDoContext from "./store/ToDoContext";
 
 
 const App = () => {
 
-  const [textInput, setTextInput] = useState('');
-
-  const [itemsArray, setItemsArray] = useState([]);
-
-
-  const handlerOnAddBtn = () => {
-    if (!textInput) {
-      alert("Please enter something.");
-    }
-    else {
-      setItemsArray([...itemsArray, textInput]);
-    }
-    setTextInput('');
-  };
-
-  const handlerOnDelBtn = (idABC) => {
-    const updatedArray = itemsArray.filter((currElem, index) => {
-      return index !== idABC;
-    })
-    setItemsArray(updatedArray);
-  };
-
-  const handlerOnRemoveAll = () => {
-    setItemsArray([]);
-  };
-
+  const { itemsArray, textInput, addition, subtraction, removeAll, setTextInput } = useContext(ToDoContext);
 
   return (
     <>
@@ -228,15 +280,15 @@ const App = () => {
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
-          <button onClick={handlerOnAddBtn}
+          <button onClick={addition}
             className="first_btn"
           > + </button>
           <ol>
             {itemsArray.map((arr, index) => {
-              return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
+              return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={subtraction}></ToDoLists>
             })}
           </ol>
-          <button onClick={handlerOnRemoveAll} className="second_btn"> Remove All </button>
+          <button onClick={removeAll} className="second_btn"> Remove All </button>
         </div>
       </div>
 
