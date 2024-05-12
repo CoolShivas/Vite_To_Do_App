@@ -29,6 +29,7 @@ const App = () => {
     // Here, we are setting the itemsArray with the help of useState function;
     // Now, setItemsArray taking the parameter as prevItems (or any name you can give I have mention the prevItems) i.e, the textInput that have the initial value. Therefore, setItemsArray will return the prevItems with the help of spread operator and textInput(as object or way of how to mention the data such as previously the instead of buy apple if ther were any car details it will be mention as an object with car colour, seats, wheels and many more) i.e, for setting the items in the same Array.
     setTextInput("");
+    // Here, by using the add button clear the inputField after rendering the data ;
   };
 
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={handlerOnInputText} value={textInput} />
+          {/* Here, we are using the value attribute for clearing the entered inputField after clicking on add button; */}
           <button onClick={handlerOnAddBtn}> + </button>
           <ol>
             {/* <li> {textInput} </li> */}
