@@ -1,8 +1,6 @@
 
 
-const ToDoLists = (props) => {
-
-    const { arrABC } = props;
+const ToDoLists = ({ arrABC }) => {
 
     return (
         <li>
