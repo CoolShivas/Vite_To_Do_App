@@ -85,6 +85,7 @@ ol li{
   align-items: center;
   color: #8566aa;
   text-transform: capitalize;
+  padding-bottom: 10px;
 }
 
 .todo_style{
