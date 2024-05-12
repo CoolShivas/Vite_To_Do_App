@@ -54,6 +54,14 @@ export const ToDoCtxProvider = (props) => {
         setItemsArray([]);
     };
 
+    // Steps for editing the data :-
+    // When user click on edit button :-
+    // 1.) Get the id and name of the data which user clicked to edit.
+    // 2.) Set the toggle mode to change the submit button into edit button.
+    // 3.) Now update the value of the setInput with the new updated value to edit.
+    // 4.) To pass the current element id to new state variable for reference.
+
+
     const handlerOnEditBtn = (idABC) => {
         console.log('editing is going on');
         const editedArrItem = itemsArray.find((currElement) => {
@@ -63,6 +71,7 @@ export const ToDoCtxProvider = (props) => {
         // Therefore, instead of findIndex we are going to use the find only that gives the full object;
         console.log(editedArrItem);// Here, we are going to get the correct id on edit button;
         // Here, we are getting id and name after using only find;
+        setToggler(false);
     };
 
 
