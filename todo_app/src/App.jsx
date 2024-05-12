@@ -259,7 +259,7 @@
 // Now usign Context Api for props :-
 
 
-
+import { FaRegEdit } from "react-icons/fa";
 import ToDoLists from "./components/ToDoLists";
 import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
 import { useState, useContext } from "react";
@@ -268,7 +268,7 @@ import ToDoContext from "./store/ToDoContext";
 
 const App = () => {
 
-  const { itemsArray, textInput, addition, subtraction, removeAll, setTextInput } = useContext(ToDoContext);
+  const { itemsArray, textInput, addition, removeAll, setTextInput, toggler, setToggler } = useContext(ToDoContext);
 
   return (
     <>
@@ -279,9 +279,15 @@ const App = () => {
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
-          <button onClick={addition}
+
+          {toggler ? <button onClick={addition}
             className="first_btn"
-          > + </button>
+          > + </button> : <FaRegEdit className="cross_icon" onChange={(e) => setTextInput(e.target.value)} />}
+
+          {/* if toggler is true it will show the add button else edit button */}
+
+
+
           <ol>
             {itemsArray.map((arr) => {
               return <ToDoLists key={arr.id} idABC={arr.id} arrABC={arr.name}></ToDoLists>

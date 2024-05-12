@@ -29,6 +29,8 @@ export const ToDoCtxProvider = (props) => {
 
     const [itemsArray, setItemsArray] = useState(gettingLocalStorage());
 
+    const [toggler, setToggler] = useState(true);// toggler is true ;
+
 
     const handlerOnAddBtn = () => {
         if (!textInput) {
@@ -60,6 +62,7 @@ export const ToDoCtxProvider = (props) => {
         // Previously, findIndex is giving the index number. Whereas we want the full object i.e, id as well as name also.
         // Therefore, instead of findIndex we are going to use the find only that gives the full object;
         console.log(editedArrItem);// Here, we are going to get the correct id on edit button;
+        // Here, we are getting id and name after using only find;
     };
 
 
@@ -82,6 +85,8 @@ export const ToDoCtxProvider = (props) => {
         subtraction: handlerOnDelBtn,
         removeAll: handlerOnRemoveAll,
         editing: handlerOnEditBtn,
+        toggler: toggler,
+        setToggler: setToggler,
     };
 
 
