@@ -36,7 +36,23 @@ export const ToDoCtxProvider = (props) => {
 
     const handlerOnAddBtn = () => {
         if (!textInput) {
-            alert("Please enter something.");
+            return alert("Please enter something.");
+        }
+        else if (textInput && !toggler) {
+            setItemsArray(
+                // Using the map method to confirm the id with the editing id for edit purpose;
+                itemsArray.map((elem) => {
+                    if (elem.id === isEditItem) {
+                        return { ...elem, name: textInput }
+                    }
+                    else {
+                        return elem;
+                    }
+                })
+            )
+            setToggler(true);
+            setTextInput('');
+            setIsEditItem(null);
         }
         else {
             const allInputData = { id: new Date().getTime().toString(), name: textInput };

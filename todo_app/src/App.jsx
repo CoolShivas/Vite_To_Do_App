@@ -280,9 +280,7 @@ const App = () => {
           <br />
           <input type="text" placeholder="add an item here" onChange={(e) => setTextInput(e.target.value)} value={textInput} />
 
-          {toggler ? <button onClick={addition}
-            className="first_btn"
-          > + </button> : <FaRegEdit className="cross_icon" onChange={(e) => setTextInput(e.target.value)} />}
+          {toggler ? <button onClick={addition} className="first_btn"> + </button> : <FaRegEdit className="cross_icon" onClick={addition} />}
 
           {/* if toggler is true it will show the add button else edit button */}
 
