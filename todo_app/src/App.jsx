@@ -1,3 +1,4 @@
+import todo from "../public/pexels-karolina-grabowska-4195505.jpg";
 import ToDoLists from "./components/ToDoLists";
 import { useState } from "react";
 
@@ -51,6 +52,7 @@ const App = () => {
       <div className="main_div">
         <div className="center_div">
           <br />
+          <img src={todo} alt="image not found" style={{ width: "150px", height: "70px" }} />
           <h1> To Do App </h1>
           <br />
           <input type="text" placeholder="add an item here" onChange={handlerOnInputText} value={textInput} />
