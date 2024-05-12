@@ -1,9 +1,11 @@
 import { IoCloseCircle } from "react-icons/io5";
 
-const ToDoLists = ({ arrABC, handlerOnDelBtnABC }) => {
+const ToDoLists = ({ arrABC, handlerOnDelBtnABC, idABC }) => {
 
     const handlerOnCrossIcon = () => {
-        handlerOnDelBtnABC();
+        handlerOnDelBtnABC(idABC);
+        // Getting the idABC as props from the itemsArray.map((arr, index) especially from the index present in it;
+        // Therefore, here we are providing the idABC to onClick handler to perform function while clicking on IoTabletLandscape;
     };
 
     return (

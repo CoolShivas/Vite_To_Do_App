@@ -33,8 +33,16 @@ const App = () => {
     // Here, by using the add button clear the inputField after rendering the data ;
   };
 
-  const handlerOnDelBtn = () => {
+  const handlerOnDelBtn = (idABC) => {
     console.log('cross btn clicked');
+    // Getting the idABC from the onclick handler and pass it as an parameter to handlerOnAddBtn;
+    setItemsArray((prevItems) => {
+      // Performing the delete functionality on the prevItems that is already present inside the array;
+      return prevItems.filter((currElem, index) => {
+        return index !== idABC;
+        // With the help of index argument in the filter method to identify or match the index with id for deletion purpose;
+      })
+    })
   };
 
 
@@ -51,9 +59,11 @@ const App = () => {
           <ol>
             {/* <li> {textInput} </li> */}
             {/* Passing the current state value with initial state i.e, "buy apple". */}
-            {itemsArray.map((arr) => {
-              return <ToDoLists arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
+            {itemsArray.map((arr, index) => {
+              return <ToDoLists key={index} idABC={index} arrABC={arr} handlerOnDelBtnABC={handlerOnDelBtn}></ToDoLists>
               // Here, itemsArray will use the map method to set the data in the second useState hook in the form of an Array with the help of setItemsArray having the previous data and the way of previous data to be mention as;
+
+              /// // For Deletion purpose we are going to use the index paramater inside the map method and pass it as props to the onclick handler as idABC;
             })}
           </ol>
         </div>
