@@ -8,13 +8,19 @@ const ToDoLists = ({ idABC, arrABC }) => {
     const { subtraction, editing } = useContext(ToDoContext);
 
     return (
-        <div className="todo_style">
-            <li>
-                {arrABC}
-                <IoCloseCircle className="cross_icon" onClick={() => { subtraction(idABC) }} />
-                <FaRegEdit className="cross_icon" onClick={() => { editing(idABC) }} />
-            </li>
-        </div>
+
+        <li>
+            <div className="todo_style">
+                <div className="arrangement">
+                    {arrABC}
+                </div>
+                <div className="icons">
+                    <IoCloseCircle className="cross_icon" onClick={() => { subtraction(idABC) }} />
+                    <FaRegEdit className="cross_icon" onClick={() => { editing(idABC) }} />
+                </div>
+            </div>
+        </li>
+
     )
 }
 

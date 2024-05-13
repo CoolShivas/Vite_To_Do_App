@@ -91,10 +91,19 @@ ol li{
 }
 
 .todo_style{
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
+  
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  place-content: center;
+  gap: 12rem;
+
+  && .icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;    
+  }
 }
 
 
@@ -102,10 +111,9 @@ ol li{
   width: 20px;
   height: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #8566aa;
-  margin: 0 20px 0 20px;
+  /* margin: 0 20px 0 20px; */
+  margin-right: 20px;
   color: aliceblue;
   box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.3) ;
   
@@ -161,4 +169,8 @@ ol li{
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+.arrangement{
+
 }
