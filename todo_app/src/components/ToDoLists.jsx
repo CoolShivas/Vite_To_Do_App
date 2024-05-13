@@ -16,7 +16,7 @@ const ToDoLists = ({ idABC, arrABC }) => {
                 </div>
                 <div className="icons">
                     <IoCloseCircle className="cross_icon" onClick={() => { subtraction(idABC) }} />
-                    <FaRegEdit className="cross_icon" onClick={() => { editing(idABC) }} />
+                    <FaRegEdit className="pen_icon" onClick={() => { editing(idABC) }} />
                 </div>
             </div>
         </li>

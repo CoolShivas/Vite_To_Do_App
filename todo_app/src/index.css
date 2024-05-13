@@ -171,6 +171,11 @@ ol li{
   -o-border-radius: 10px;
 }
 
-.arrangement{
 
+.pen_icon{
+  margin-right: 15px;
+}
+
+.pen_icon:hover{
+  color: #20bf6b;
 }
